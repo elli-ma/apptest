@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/CommentDetailPage", {data:[{comment:{}}],fetch:{},mutations:void 0});
