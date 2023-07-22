@@ -26,7 +26,11 @@ export default {
   buildModules: [ 
     '@nuxtjs/tailwindcss',
   ],
+  ssr: false,
   modules: ['@nuxt/http'],
+  router: {
+    base: "/apptest/"
+  },
   build: {
   }
 }

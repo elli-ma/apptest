@@ -16,10 +16,10 @@
         <tr
           v-for="comment in paginatedComments"
           :key="comment.id"
-          class="cursor-pointer hover:bg-gray-100"
+          class="hover:bg-gray-100"
         >
             <td class="p-4">{{ comment.id }}</td>
-            <td class="p-4"><NuxtLink :to="`comments/${comment.id}`" no-prefetch>{{ comment.name }}</NuxtLink></td>
+            <td class="cursor-pointer hover:text-blue p-4"><NuxtLink :to="`comments/${comment.id}`" no-prefetch>{{ comment.name }}</NuxtLink></td>
             <td class="p-4">{{ comment.email }}</td>
         </tr>
       </tbody>
