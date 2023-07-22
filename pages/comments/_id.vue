@@ -22,9 +22,8 @@ export default {
     const response = await $http.$get(
       `https://jsonplaceholder.typicode.com/comments/${route.params.id}`
     );
-    // Возвращаем данные комментария в виде заглушки, чтобы не возникало ошибки во время генерации
     return { comment: response ?? {} };
-  }
+  },
 };
 </script>
   
