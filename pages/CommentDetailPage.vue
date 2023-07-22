@@ -16,13 +16,30 @@
   </div>
 </template>
   
-  <script>
+<script>
 export default {
-  async asyncData({ params, $http }) {
-    const comment = await $http.$get(
-      `https://jsonplaceholder.typicode.com/comments/${params.id}`
-    );
-    return { comment };
+  async asyncData({ params }) {
+    return { comment: {} };
+  },
+  mounted() {
+    this.fetchComment();
+  },
+  methods: {
+    async fetchComment() {
+      try {
+        const response = await this.$http.$get(
+          `https://jsonplaceholder.typicode.com/comments/${this.$route.params.id}`
+        );
+        this.comment = response;
+      } catch (error) {
+        console.error("Ошибка при получении комментария:", error);
+      }
+    },
+  },
+  data() {
+    return {
+      comment: null,
+    };
   },
 };
 </script>
