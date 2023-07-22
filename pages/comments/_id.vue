@@ -18,29 +18,13 @@
   
 <script>
 export default {
-  async asyncData({ params }) {
-    return { comment: {} };
-  },
-  mounted() {
-    this.fetchComment();
-  },
-  methods: {
-    async fetchComment() {
-      try {
-        const response = await this.$http.$get(
-          `https://jsonplaceholder.typicode.com/comments/${this.$route.params.id}`
-        );
-        this.comment = response;
-      } catch (error) {
-        console.error("Ошибка при получении комментария:", error);
-      }
-    },
-  },
-  data() {
-    return {
-      comment: null,
-    };
-  },
+  async asyncData({ $http, route }) {
+    const response = await $http.$get(
+      `https://jsonplaceholder.typicode.com/comments/${route.params.id}`
+    );
+    // Возвращаем данные комментария в виде заглушки, чтобы не возникало ошибки во время генерации
+    return { comment: response ?? {} };
+  }
 };
 </script>
   

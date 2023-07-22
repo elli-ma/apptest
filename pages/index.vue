@@ -1,8 +1,10 @@
 
 <template>
   <div class="container mx-auto">
-    <h2 class="text-center text-4xl p-5 ">Comments</h2>
-    <table class="table-auto w-full bg-white shadow-lg rounded-lg overflow-hidden">
+    <h2 class="text-center text-4xl p-5">Comments</h2>
+    <table
+      class="table-auto w-full bg-white shadow-lg rounded-lg overflow-hidden"
+    >
       <thead>
         <tr>
           <th class="p-4 bg-blue-600 text-white text-left">id</th>
@@ -14,12 +16,11 @@
         <tr
           v-for="comment in paginatedComments"
           :key="comment.id"
-          @click="goToCommentDetail(comment.id)"
           class="cursor-pointer hover:bg-gray-100"
         >
-          <td class="p-4">{{ comment.id }}</td>
-          <td class="p-4">{{ comment.name }}</td>
-          <td class="p-4">{{ comment.email }}</td>
+            <td class="p-4">{{ comment.id }}</td>
+            <td class="p-4"><NuxtLink :to="`comments/${comment.id}`" no-prefetch>{{ comment.name }}</NuxtLink></td>
+            <td class="p-4">{{ comment.email }}</td>
         </tr>
       </tbody>
     </table>
@@ -46,16 +47,15 @@
 export default {
   data() {
     return {
-      comments: [],
       itemsPerPage: 10,
       currentPage: 1,
     };
   },
-  async fetch() {
-    const response = await this.$http.$get(
+  async asyncData({ $http }) {
+    const comments = await $http.$get(
       "https://jsonplaceholder.typicode.com/comments"
     );
-    this.comments = response;
+    return { comments };
   },
   computed: {
     totalPages() {

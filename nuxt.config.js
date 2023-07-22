@@ -18,16 +18,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'comment-detail',
-        path: '/comments/:id',
-        component: '@/pages/CommentDetailPage.vue',
-      });
-    },
-  },
-
   css: [
   ],
   plugins: [
