@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@nuxt/http": "^0.6.4",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",
+    "gh-pages": "^5.0.0",
     "postcss": "^8.4.17"
   }
 }
