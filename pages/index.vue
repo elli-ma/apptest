@@ -19,7 +19,7 @@
           class="hover:bg-gray-100"
         >
             <td class="p-4">{{ comment.id }}</td>
-            <td class="cursor-pointer hover:text-blue p-4"><NuxtLink :to="`comments/${comment.id}`" no-prefetch>{{ comment.name }}</NuxtLink></td>
+            <td class="hover:text-blue-500 p-4"><NuxtLink class="cursor-pointer" :to="`comments/${comment.id}`" no-prefetch>{{ comment.name }}</NuxtLink></td>
             <td class="p-4">{{ comment.email }}</td>
         </tr>
       </tbody>
